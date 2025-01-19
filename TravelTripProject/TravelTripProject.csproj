@@ -128,11 +128,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501161112207_Admin.cs" />
+    <Compile Include="Migrations\202501161112207_Admin.Designer.cs">
+      <DependentUpon>202501161112207_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\About.cs" />
@@ -172,6 +178,10 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="weblogin\css\style.css" />
+    <Content Include="weblogin\images\b4.jpg" />
+    <Content Include="weblogin\index.html" />
+    <Content Include="weblogin\w3layouts-License.txt" />
     <Content Include="weblog\about.html" />
     <Content Include="weblog\contact.html" />
     <Content Include="weblog\css\bootstrap.css" />
@@ -196,6 +206,7 @@
     <Content Include="web\css\slider.css" />
     <Content Include="web\css\style.css" />
     <Content Include="web\destinations.html" />
+    <Content Include="web\images\7.jpg" />
     <Content Include="web\images\about_banner.jpg" />
     <Content Include="web\images\arrows.png" />
     <Content Include="web\images\but.png" />
@@ -225,10 +236,12 @@
     <Content Include="web\images\pic7.jpg" />
     <Content Include="web\images\pic8.jpg" />
     <Content Include="web\images\pic9.jpg" />
+    <Content Include="web\images\logo3.png" />
     <Content Include="web\index.html" />
     <Content Include="web\js\jquery.min.js" />
     <Content Include="web\js\responsiveslides.min.js" />
     <Content Include="web\w3layouts-License.txt" />
+    <Content Include="web\images\logo2.png" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -259,9 +272,31 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\BlogDetail.cshtml" />
+    <Content Include="Views\Default\PartialReadMoreLeft.cshtml" />
+    <Content Include="Views\Default\PartialReadMoreRight.cshtml" />
+    <Content Include="Views\Default\PartialTopBlog.cshtml" />
+    <Content Include="Views\Default\PartialOurPlacesLeft.cshtml" />
+    <Content Include="Views\Default\PartialOurPlacesRight.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CreateBlog.cshtml" />
+    <Content Include="Views\Admin\GetBlog.cshtml" />
+    <Content Include="Views\Blog\AddComment.cshtml" />
+    <Content Include="Views\Admin\CommentList.cshtml" />
+    <Content Include="Views\Admin\GetComment.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="weblogin\fonts\Asap-Regular.ttf" />
+    <Content Include="weblogin\fonts\Audiowide-Regular.ttf" />
+    <Content Include="Views\Admin\AboutList.cshtml" />
+    <Content Include="Views\Admin\CreateAbout.cshtml" />
+    <Content Include="Views\Admin\AddressList.cshtml" />
+    <Content Include="Views\Admin\CreateAddress.cshtml" />
+    <Content Include="Views\Admin\GetAddress.cshtml" />
+    <Content Include="Views\Admin\GetAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -289,6 +324,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202501161112207_Admin.resx">
+      <DependentUpon>202501161112207_Admin.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

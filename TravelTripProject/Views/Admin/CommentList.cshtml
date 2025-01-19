@@ -1,0 +1,45 @@
+﻿@model List<TravelTripProject.Models.Entities.Comment>
+@{
+    ViewBag.Title = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Yorum Listesi</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Gönderen</th>
+                <th>Mail</th>
+                <th>Yorum</th>
+                <th>Blog</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.SenderName</td>
+                    <td>@item.Email</td>
+                    <td>@(item.Content?.Length > 100 ? item.Content?.Substring(0, 100) + "..." : item.Content)</td>
+                    <td>@item.Blog.Title</td>
+                    <td>
+                        <a href="/Admin/DeleteComment/@item.Id" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Sil
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Admin/GetComment/@item.Id" class="btn btn-success btn-sm">
+                            <i class="fas fa-edit"></i> Güncelle
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,43 @@
+﻿@model List<TravelTripProject.Models.Entities.Address>
+
+@{
+    ViewBag.Title = "AddressList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align: center;">İletişim Listesi</h1>
+<br />
+<table class="table table-striped table-bordered table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Açık Adres</th>
+        <th>Mail</th>
+        <th>Telefon</th>
+        <th>Konum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@(item.Description?.Length > 100 ? item.Description?.Substring(0, 100) + "..." : item.Description)</td>
+            <td>@item.FullAddress</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.Location</td>
+            <td><a href="/Admin/DeleteAddress/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/GetAddress/@item.Id" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+
+<a href="/Admin/CreateAddress/" class="btn btn-primary">Yeni İletişim Ekle</a>

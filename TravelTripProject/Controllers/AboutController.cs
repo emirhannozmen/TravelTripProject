@@ -7,7 +7,6 @@ using TravelTripProject.Models.Entities;
 
 namespace TravelTripProject.Controllers
 {
-    
     public class AboutController : Controller
     {
         Context c = new Context();

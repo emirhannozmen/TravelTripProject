@@ -1,0 +1,39 @@
+﻿@model TravelTripProject.Models.Entities.Address
+@{
+    ViewBag.Title = "GetAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İletişim Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UpdateAddress", "Admin", FormMethod.Post))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "height:200px" })
+    <br />
+
+    @Html.Label("Açık Adres")
+    @Html.TextBoxFor(x => x.FullAddress, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Telefon")
+    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Konum")
+    @Html.TextBoxFor(x => x.Location, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}

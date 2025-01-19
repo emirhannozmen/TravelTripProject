@@ -1,4 +1,4 @@
-﻿
+﻿@model List<TravelTripProject.Models.Entities.Blog>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UILayout.cshtml";
@@ -13,6 +13,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
+    <link href="~/weblog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/weblog/css/style.css" rel='stylesheet' type='text/css' />
     <title>Free Easy-Trip Website Template | Home :: w3layouts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -40,14 +42,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="wrap">
             <div class="banner">
                 <div class="indent">
-                    <h2 class="indent-left margin-bot">Plan the Easy Trip</h2>
+                    <h2 class="indent-left margin-bot" style="margin-left: 50px;">Kolay Bir Tatil Planlayın</h2>
                     <div class="banner-left">
                         <div class="con-text">
                             <div class="grid1-img">
                                 <img src="~/web/images/glass.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Restaurants</p>
+                                <p>Restoranlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -56,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/flight.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Flights</p>
+                                <p>Uçuşlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -65,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/group.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Things to do</p>
+                                <p>Yapılacak Aktiviteler</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -74,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/key.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Vacation Rents</p>
+                                <p>Tatil Kiralamaları</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -84,10 +86,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         <div class="slider">
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
-                                <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                @foreach (var item in Model)
+                                {
+                                    <li><img src="@item.ImageUrl" alt="" ></li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -97,111 +99,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="clear"></div>
         </div>
     </div>
+
     <div class"content">
         <div class="wrap">
             <div class="wrapper">
+
                 <div class="con-top">
-                    <h3></h3>
-                    <p></p>
+
+                    <h3>Tatil Bloğuma Hoşgeldiniz!</h3>
+                    <p>Yeni yerler keşfetmeyi sevenler için ilham verici seyahat rotaları, eşsiz kültürel deneyimler ve unutulmaz tatil anılarıyla dolu bir dünyaya adım atın. Bu blogda, tarihi şehirlerden tropik adalara, doğa harikalarından gizli kalmış cennetlere kadar keşfedilmesi gereken pek çok yer hakkında detaylı bilgiler, gezi ipuçları ve öneriler bulacaksınız. Tatil planlarınızı yaparken size rehberlik edecek içeriklerle dolu bu yolculukta bana katılın ve dünyayı birlikte keşfedelim! 🌍✈️</p>
+
                 </div>
-
-                <div class="con-bot">
-                    
-                        <div class="left">
-                            <div class="bot-left">
-                                <img src="~/web/images/img4.jpg" alt="" />
-                            </div>
-                            <div class="left-text">
-                                <h4>dsfdfsfs</h4>
-                                <span class="doller">9999</span>
-                                <p>sfsdfsf</p>
-                                <p><a href="/Blog/BlogDetail/sdfsf/"><span class="read">Read More >></span></a></p>
-                            </div>
-                        </div>
-                    
-                        <div class="right">
-                            <div class="bot-left">
-                                <img src="~/web/images/img4.jpg" alt="" />
-                            </div>
-                            <div class="left-text">
-
-                                <h4>dsfsfsf</h4>
-                                <span class="doller">4444</span>
-                                <p>sdfsf</p>
-                                <p><a href="/Blog/BlogDetail/dsffsd/"><span class="read">Read More>></span></a></p>
-                            </div>
-                        </div>
-
-                    <div class="clear"></div>
-                </div>
-
+                
+                @Html.Action("PartialReadMoreLeft", "Default")
+                
                 <div class="grids">
                     <div class="box1">
-                        <div class="padding">
-                            <h4>This Week's Top 10</h4>
-                            <ul class="list list-pad">
-                                <li class="list-bg"><span>1.</span><a href="#">formas humanitatis pe</a></li>
-                                <li class="list-bg1"><span>2.</span><a href="#">congue nihil imperdiet</a></li>
-                                <li class="list-bg"><span>3.</span><a href="#">Aadipisicing elit sed do</a></li>
-                                <li class="list-bg1"><span>4.</span><a href="#">luptatum zzril  </a></li>
-                                <li class="list-bg"><span>5.</span><a href="#">Claritas est etiam</a></li>
-                                <li class="list-bg1"><span>6.</span><a href="#">claritatem insitam;</a></li>
-                                <li class="list-bg"><span>7.</span><a href="#">velit esse molestie consequa</a></li>
-                                <li class="list-bg1"><span>8.</span><a href="#">nostrud exerci tation ulla</a></li>
-                                <li class="list-bg"><span>9.</span><a href="#">demonstraverunt lectores</a></li>
-                                <li class="list-bg1"><span>10.</span><a href="#">dolore te feu</a></li>
-                            </ul>
-                            <a href="#" class="link1">See all hotels</a>
-                        </div>
-                        <div class="padding1">
-                            <h4>Our Best Places</h4>
-                            <div class="box-left">
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic3.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic7.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic8.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="box1-left">
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic9.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic10.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="bot-img">
-                                    <img src="~/web/images/pic3.jpg" alt="" />
-                                </div>
-                                <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+
+                        @Html.Action("PartialTopBlog", "Default")
+
+                        @Html.Action("PartialOurPlacesLeft", "Default")
                         <div class="clear"></div>
                     </div>
                 </div>

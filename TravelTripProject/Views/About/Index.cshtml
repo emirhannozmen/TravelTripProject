@@ -1,13 +1,18 @@
 ﻿@model List<TravelTripProject.Models.Entities.About>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
 
+<link href="~/weblog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/weblog/css/style.css" rel='stylesheet' type='text/css' />
+
 <div class="content">
     <div class="wrap">
         <div class="about">
             <h3>Hakkımızda</h3>
+
             @foreach (var item in Model)
             {
                 <img src="@item.ImageUrl" alt="" />

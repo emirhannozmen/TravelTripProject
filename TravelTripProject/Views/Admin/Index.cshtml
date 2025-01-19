@@ -1,0 +1,41 @@
+﻿@model List<TravelTripProject.Models.Entities.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Blog Listesi</h1>
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <a href="/Admin/CreateBlog/" class="btn btn-primary float-right">
+                <i class="fas fa-plus-circle me-2"></i> Yeni Blog Ekle
+            </a>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="@item.ImageUrl" class="card-img-top" alt="Blog Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">
+                            @(item.Description?.Length > 100 ? item.Description?.Substring(0, 100) + "..." : item.Description)
+                        </p>
+                        <p class="text-muted">@(item.Date?.ToString("yyyy-MM-dd") ?? "")</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/Admin/DeleteBlog/@item.Id" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash me-2"></i> Sil
+                        </a>
+                        <a href="/Admin/GetBlog/@item.Id" class="btn btn-success btn-sm">
+                            <i class="fas fa-edit me-2"></i> Güncelle
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

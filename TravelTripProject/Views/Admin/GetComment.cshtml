@@ -1,0 +1,28 @@
+﻿@model TravelTripProject.Models.Entities.Comment
+@{
+    ViewBag.Title = "GetComment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UpdateComment", "Admin", FormMethod.Post))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+    @Html.Label("Gönderen")
+    @Html.TextBoxFor(x => x.SenderName, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Mail Adresi")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Yorum")
+    @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @style = "height:200px" })
+    <br />
+
+    <button class="btn btn-success">Kaydet</button>
+}
